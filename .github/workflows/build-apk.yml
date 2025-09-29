@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 name: Build and Test APK
 
 on:
@@ -60,6 +61,19 @@ jobs:
     strategy:
       matrix:
         build-type: [debug, release]
+=======
+name: Build APK
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+>>>>>>> 53e5b4d90db33d0a9df65603b3df9a7d41d50c90
     
     steps:
     - name: Checkout code
@@ -70,6 +84,7 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+<<<<<<< HEAD
         cache: gradle
     
     - name: Cache Gradle packages
@@ -81,6 +96,8 @@ jobs:
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
         restore-keys: |
           ${{ runner.os }}-gradle-
+=======
+>>>>>>> 53e5b4d90db33d0a9df65603b3df9a7d41d50c90
     
     - name: Grant execute permission for gradlew
       run: chmod +x android-app/gradlew
@@ -88,15 +105,20 @@ jobs:
     - name: Build APK
       run: |
         cd android-app
+<<<<<<< HEAD
         if [ "${{ matrix.build-type }}" = "release" ]; then
           ./gradlew assembleRelease
         else
           ./gradlew assembleDebug
         fi
+=======
+        ./gradlew assembleDebug
+>>>>>>> 53e5b4d90db33d0a9df65603b3df9a7d41d50c90
     
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
+<<<<<<< HEAD
         name: app-${{ matrix.build-type }}
         path: android-app/app/build/outputs/apk/${{ matrix.build-type }}/app-${{ matrix.build-type }}.apk
         retention-days: 30
@@ -220,4 +242,8 @@ jobs:
       with:
         name: security-scan-results
         path: android-app/app/build/reports/security-scan.sarif
+=======
+        name: app-debug
+        path: android-app/app/build/outputs/apk/debug/app-debug.apk
+>>>>>>> 53e5b4d90db33d0a9df65603b3df9a7d41d50c90
         retention-days: 30
