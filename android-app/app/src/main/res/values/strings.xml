@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">HG ABSCHUSSMANAGMENT</string>
+    <string name="onboarding_title">Ziel-Website</string>
+    <string name="onboarding_hint">https://example.com</string>
+    <string name="onboarding_cta">Weiter</string>
+    <string name="onboarding_validating">Prüfe Verbindung · Bitte warten ·</string>
+    <string name="onboarding_error">URL ungültig oder keine WordPress-API erreichbar</string>
+    <string name="home_welcome">Willkommen</string>
+    
+</resources>
