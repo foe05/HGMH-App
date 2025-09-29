@@ -4,6 +4,7 @@ plugins {
     id("com.google.dagger.hilt.android") version "2.48"
     id("com.google.gms.google-services") version "4.4.0"
     id("com.google.devtools.ksp") version "2.0.20-1.0.25"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.20"
 }
 
 android {
@@ -33,10 +34,6 @@ android {
 
     buildFeatures {
         compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15"
     }
 
     packaging {
