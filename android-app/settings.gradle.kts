@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "HG ABSCHUSSMANAGMENT"
+rootProject.name = "HG ABSCHLUSSMANAGEMENT"
 include(":app")
