@@ -2,8 +2,8 @@ plugins {
     id("com.android.application") version "8.5.2"
     id("org.jetbrains.kotlin.android") version "2.0.20"
     id("com.google.dagger.hilt.android") version "2.48"
-    id("kotlin-kapt")
-    id("com.google.gms.google-services")
+    id("kotlin-kapt") version "2.0.20"
+    id("com.google.gms.google-services") version "4.4.0"
 }
 
 android {
