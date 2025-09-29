@@ -36,14 +36,11 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gradle-
     
-    - name: Grant execute permission for gradlew
-      run: chmod +x android-app/gradlew
-    
     - name: Run code quality checks
       run: |
         cd android-app
-        ./gradlew check --continue
-        ./gradlew lintDebug
+        gradle check --continue
+        gradle lintDebug
     
     - name: Upload lint results
       uses: actions/upload-artifact@v4
@@ -82,16 +79,13 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gradle-
     
-    - name: Grant execute permission for gradlew
-      run: chmod +x android-app/gradlew
-    
     - name: Build APK
       run: |
         cd android-app
         if [ "${{ matrix.build-type }}" = "release" ]; then
-          ./gradlew assembleRelease
+          gradle assembleRelease
         else
-          ./gradlew assembleDebug
+          gradle assembleDebug
         fi
     
     - name: Upload APK
@@ -135,13 +129,10 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gradle-
     
-    - name: Grant execute permission for gradlew
-      run: chmod +x android-app/gradlew
-    
     - name: Run unit tests
       run: |
         cd android-app
-        ./gradlew testDebugUnitTest --continue
+        gradle testDebugUnitTest --continue
     
     - name: Run instrumented tests
       uses: reactivecircus/android-emulator-runner@v2
@@ -152,7 +143,7 @@ jobs:
         profile: Nexus 6
         script: |
           cd android-app
-          ./gradlew connectedDebugAndroidTest --continue
+          gradle connectedDebugAndroidTest --continue
     
     - name: Upload test results
       uses: actions/upload-artifact@v4
